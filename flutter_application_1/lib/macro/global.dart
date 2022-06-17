@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,7 +13,7 @@ String prefix_image(String name) {
 AppBar initAppBar(String title,{List<Widget>? actions}){
   return AppBar(
     backgroundColor: Colors.green,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
         color: Colors.black
     ),
     title: Text(title,

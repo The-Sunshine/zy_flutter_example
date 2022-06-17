@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/macro/global.dart';
@@ -22,27 +23,32 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
     const Car(
       '保时捷',
       'https://img0.baidu.com/it/u=1875746338,171164291&fm=253&fmt=auto&app=120&f=JPEG?w=846&h=477',
+      ''
     ),
     const Car(
       '奔驰',
       'https://img0.baidu.com/it/u=2269620487,3600909808&fm=253&fmt=auto&app=120&f=JPEG?w=667&h=500',
+        ''
     ),
     const Car(
       '宝马',
       'https://img1.baidu.com/it/u=1628168174,64924477&fm=253&fmt=auto&app=120&f=JPEG?w=890&h=500',
+        ''
     ),
     const Car(
       '保时捷',
       'https://img0.baidu.com/it/u=1875746338,171164291&fm=253&fmt=auto&app=120&f=JPEG?w=846&h=477',
+        ''
     ),
-
     const Car(
       '奔驰',
       'https://img0.baidu.com/it/u=2269620487,3600909808&fm=253&fmt=auto&app=120&f=JPEG?w=667&h=500',
+        ''
     ),
     const Car(
       '宝马',
       'https://img1.baidu.com/it/u=1628168174,64924477&fm=253&fmt=auto&app=120&f=JPEG?w=890&h=500',
+        ''
     ),
   ];
 
@@ -62,7 +68,7 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
   }
 
   void requestData() {
-    endRefreshWithList(_refreshController, datas);
+    endRefreshWithDatas(_refreshController, datas.isEmpty);
     // HomeNetManager.buyMovie(
     //     {'page':this.page,
     //       'page_size':10,
@@ -160,29 +166,63 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
   }
 
   Widget _itemForRow(BuildContext context, int index) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(8,16,8,0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _initPictureContent(index),
-          SizedBox(height: 8,),
-          _initBottomTitleContent(index),
-          SizedBox(height: 8,),
-          _initBottomDesContent(index),
-          SizedBox(height: 16,),
-          Text(
-            '上次看到00:59:52',
-            style: TextStyle(
-              fontSize: 12,
-              color: Color(0xffA6A6A6),
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: (){
+        _initDeletePopView(index);
+      },
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(8,16,8,0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            _initPictureContent(index),
+            SizedBox(height: 8,),
+            _initBottomTitleContent(index),
+            SizedBox(height: 8,),
+            _initBottomDesContent(index),
+            SizedBox(height: 16,),
+            Text(
+              '上次看到00:59:52',
+              style: TextStyle(
+                fontSize: 12,
+                color: Color(0xffA6A6A6),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
+  _initDeletePopView(int index){
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.SCALE,
+      dialogType: DialogType.NO_HEADER,
+      body: Container(
+        height: 64,
+        color: Colors.white,
+        padding: EdgeInsets.only(top: 15),
+        child: GestureDetector(
+          onTap: (){
+
+          },
+          child: Text(
+            '取消收藏',
+            style: TextStyle(fontSize: 14),
+          ),
+        )
+      )
+    ).show();
+  }
+
+  // Center(
+  // child: Text(
+  // '取消收藏',
+  // style: TextStyle(fontSize: 14),
+  // ),
+  // ),
   _initPictureContent(int index) {
     return Stack(
         children: <Widget>[
@@ -191,7 +231,7 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
             child: CachedNetworkImage(
               imageUrl: 'https://www.google.com/imgres?imgurl=http%3A%2F%2Fthepost.net.ph%2Fapp%2Fuploads%2F2021%2F04%2Fthumbnail-1.png&imgrefurl=https%3A%2F%2Fthepost.net.ph%2Fnews%2Fcampus%2Ftup-eyes-face-to-face-classes-in-march-2022%2F&tbnid=vigfBm9og-tMrM&vet=12ahUKEwiTtO7Frv_3AhUK9pQKHXuhCx4QMygFegUIARDEAQ..i&docid=D6FRAeG3qn4UaM&w=1200&h=800&q=tup&ved=2ahUKEwiTtO7Frv_3AhUK9pQKHXuhCx4QMygFegUIARDEAQ',
               fit: BoxFit.cover,
-              height: 241,
+              height: precent_w(241),
             ),
           ),
           _initCollectNumber(),
@@ -203,38 +243,43 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
   _initCollectNumber() {
     return Align(
       alignment: Alignment.topRight,
-      child: Container(
-        alignment: Alignment.topRight,
-        margin: EdgeInsets.only(right: 8,top: 8),
-        width: 58,
-        height: 24,
-        decoration: BoxDecoration(
-          color: Color(0x99000000),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.only(left: 8,top: 4),
-              child: const Text(
-                '800',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xffFBF256),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            alignment: Alignment.topRight,
+            margin: EdgeInsets.only(right: 8,top: 8),
+            height: 24,
+            decoration: BoxDecoration(
+              color: Color(0x99000000),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 8,top: 4),
+                  child: const Text(
+                    '40020',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xffFBF256),
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                    padding: EdgeInsets.only(left: 2,top: 4,right: 8),
+                    child: Image.asset(
+                      prefix_image('home.png'),
+                      width: 14,
+                      height: 14,
+                    )
+                ),
+              ],
             ),
-            Container(
-                padding: EdgeInsets.only(left: 2,top: 4,right: 8),
-                child: Image.asset(
-                  prefix_image('home.png'),
-                  width: 14,
-                  height: 14,
-                )
-            ),
-          ],
-        ),
-      ),
+          ),
+        ],
+      )
     );
   }
   _initTimeContent(int index) {

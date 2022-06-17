@@ -2,16 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_application_1/macro/screen_size.dart';
-import 'package:flutter_application_1/macro/screen_utils.dart';
 import 'package:flutter_application_1/pages/container_page.dart';
 import 'package:flutter_application_1/utils/count_down_widget.dart';
 
-class SplashWidget extends StatefulWidget {
+class SplashPage extends StatefulWidget {
   @override
-  State<SplashWidget> createState() => _SplashWidgetState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashWidgetState extends State<SplashWidget> {
+class _SplashPageState extends State<SplashPage> {
 
   bool showAD = true;
 
@@ -38,8 +37,8 @@ class _SplashWidgetState extends State<SplashWidget> {
   Container initUI() {
     return Container(
       color: Colors.white,
-      width: ZYScreenSize.screenWidth,
-      height: ZYScreenSize.screenHeight,
+      width: screenWidth(),
+      height: screenHeight(),
       child: Stack(
         children: [
           Align(
@@ -48,11 +47,11 @@ class _SplashWidgetState extends State<SplashWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
-                  radius: ZYScreenSize.screenWidth / 3,
+                  radius: screenWidth() / 3,
                   backgroundImage: AssetImage(prefix_image('home.png')),
                 ),
                 const Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
+                  padding: EdgeInsets.only(top: 20.0),
                   child: Text(
                     '落花有意随流水,流水无心恋落花',
                     style: TextStyle(
@@ -91,9 +90,9 @@ class _SplashWidgetState extends State<SplashWidget> {
                 });
               }
             }),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color(0xffEDEDED),
-                borderRadius: const BorderRadius.all(Radius.circular(10))
+                borderRadius: BorderRadius.all(Radius.circular(10))
             ),
           ),
         ),

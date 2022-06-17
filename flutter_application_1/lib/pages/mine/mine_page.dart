@@ -5,7 +5,6 @@ import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_application_1/macro/screen_size.dart';
 import 'package:flutter_application_1/macro/screen_utils.dart';
 import 'package:flutter_application_1/utils/floating_button_download.dart';
-import 'package:flutter_application_1/utils/floating_button_download.dart';
 import 'package:flutter_application_1/utils/segment_control.dart';
 import 'package:flutter_application_1/utils/tab_indicator_line.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -135,7 +134,7 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
 
   _initSegment() {
     return SliverToBoxAdapter(
-      child: HBSegmentedControl(
+      child: ZYSegmentedControl(
         titleList: const ["111","222"],
         selectedColor: Colors.red,
         textColor: Colors.red,
@@ -143,8 +142,8 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
 
         onTap: (index){
           print(index);
-          print(ZYScreenSize.screenWidth);
-          print(ZYScreenSize.screenHeight);
+          print(screenWidth());
+          print(screenHeight());
 
           print(ScreenUtils().statusBarHeight);
           print(ScreenUtils().bottomBarHeight);

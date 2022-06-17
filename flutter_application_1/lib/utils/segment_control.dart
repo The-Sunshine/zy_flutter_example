@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HBSegmentedControl extends StatefulWidget {
+/// SegmentedControl
+class ZYSegmentedControl extends StatefulWidget {
   final List? titleList;
   final Color selectedColor;
   final Color textColor;
@@ -10,21 +11,23 @@ class HBSegmentedControl extends StatefulWidget {
   final double borderRadius;
   final onTap;
 
-  const HBSegmentedControl({Key? key, this.titleList,
+  const ZYSegmentedControl({
+    Key? key,
+    this.titleList,
     this.selectedColor = Colors.blue,
     this.textColor= Colors.black45,
     this.selecetedTextColor = Colors.white,
     this.fontSize = 15,
     this.onTap,
-    this.itemWidth=60,
-    this.borderRadius=5})
+    this.itemWidth = 60,
+    this.borderRadius = 5})
       : super(key: key);
 
   @override
-  _HBSegmentedControlState createState() => _HBSegmentedControlState();
+  _ZYSegmentedControlState createState() => _ZYSegmentedControlState();
 }
 
-class _HBSegmentedControlState extends State<HBSegmentedControl> {
+class _ZYSegmentedControlState extends State<ZYSegmentedControl> {
   List<Widget> items = [];
   int selectedIndex = 0;
 
@@ -32,7 +35,7 @@ class _HBSegmentedControlState extends State<HBSegmentedControl> {
   Widget build(BuildContext context) {
     List<Widget> items = [];
     for (var i = 0; i < (widget.titleList ?? []).length; i++) {
-      items.add(HBSegmentedItem(
+      items.add(ZYSegmentedItem(
         title: (widget.titleList ?? [])[i],
         index: i,
         selectedColor: widget.selectedColor,
@@ -62,7 +65,7 @@ class _HBSegmentedControlState extends State<HBSegmentedControl> {
   }
 }
 
-class HBSegmentedItem extends StatelessWidget {
+class ZYSegmentedItem extends StatelessWidget {
   final String title;
   final int? index;
   final bool selected;
@@ -73,7 +76,7 @@ class HBSegmentedItem extends StatelessWidget {
   final double? fontSize;
   final onTap;
 
-  const HBSegmentedItem(
+  const ZYSegmentedItem(
       {Key? key,
         this.title = '',
         this.index,

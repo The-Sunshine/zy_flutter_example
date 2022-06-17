@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/macro/global.dart';
-import 'package:flutter_application_1/pages/example/history_record_page/history_record_page.dart';
-import 'package:flutter_application_1/pages/home/list_page/list_page.dart';
+import 'package:flutter_application_1/macro/screen_size.dart';
 import 'package:flutter_application_1/pages/home/home_page.dart';
+import 'package:flutter_application_1/pages/home/list_page/list_page.dart';
 import 'package:flutter_application_1/pages/mine/mine_page.dart';
-import 'package:flutter_application_1/pages/example/suggest_feedback.dart';
 
 
 class ContainerPage extends StatefulWidget {
@@ -23,7 +22,7 @@ class _ContainerPageState extends State<ContainerPage> {
 
   List<Widget> pages = [
     HomePage(),
-    HistoryRecordPage(),
+    ListPage(),
     MinePage(),
   ];
 
@@ -60,6 +59,8 @@ class _ContainerPageState extends State<ContainerPage> {
 
   @override
   Widget build(BuildContext context) {
+    ZYScreenSize.initialize(context);
+
     return Scaffold(
       body: Stack(
         children: [

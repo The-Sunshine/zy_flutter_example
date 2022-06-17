@@ -1,11 +1,7 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_application_1/macro/screen_size.dart';
 import 'package:flutter_application_1/pages/container_page.dart';
-import 'dart:io';
-import 'package:flutter_application_1/pages/splash_widget.dart';
+import 'package:flutter_application_1/pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +22,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        // body: SplashWidget(),
+      home: const Scaffold(
+        // body: SplashPage(),
         body: ContainerPage(),
       ),
     );

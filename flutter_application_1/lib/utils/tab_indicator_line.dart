@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 分类组件，实现TabController指示器的宽度自定义
+/// TabController指示器的宽度自定义
 class TabIndicatorline extends Decoration {
 
   const TabIndicatorline({

@@ -24,8 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  json_annotation: ^3.0.1
-
+  #-----------------------------------------------------#
 
   # 网络库
   dio: 4.0.4
@@ -36,14 +35,48 @@ dependencies:
   # loading
   flutter_easyloading: ^3.0.3
   # 跳转浏览器网页
-  url_launcher:
+  url_launcher: ^6.0.12
   # 本地缓存
-  shared_preferences: ^0.5.12
+  shared_preferences: ^2.0.9
+  # 状态管理
+  get: ^3.26.0
+  # 序列化
+  json_annotation: ^3.0.1
+  # 弹窗
+  awesome_dialog: ^2.2.1
+  # 轮播图
+  flutter_swiper_plus: ^2.0.4
+  # WebView
+  webview_flutter: ^3.0.4
+  # 按钮
+  fbutton_nullsafety: ^5.0.0
+  # 侧滑 - 编辑，删除等
+  flutter_slidable: ^1.3.0
+  # 设备信息
+  device_info_plus: ^3.2.3
+  # 屏幕适配
+  flutter_screenutil: ^5.5.3+1
+  # 从字符串提取链接
+  linkify: ^4.1.0
+  # 表单验证 Email等
+  validation_textformfield: ^2.2.5
+  # 缓存清除
+  path_provider: ^2.0.2
+  # 单选框，复选框
+  group_button: ^5.0.1
+  # 虚线
+  dotted_line: ^3.1.0
+  # 购物车加减按钮
+  cart_stepper: ^2.0.2
+  # 小红点
+  badges: ^2.0.2
+  # 标签
+  flutter_tags_x: ^1.0.0
 
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # iOS风格的图标
   cupertino_icons: ^1.0.2
+
+  #-----------------------------------------------------#
 
 dev_dependencies:
   flutter_test:

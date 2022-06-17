@@ -2,7 +2,11 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/macro/global.dart';
+import 'package:flutter_application_1/pages/example/history_record_page/history_record_page.dart';
+import 'package:flutter_application_1/pages/home/suggest_feedback.dart';
 import 'package:flutter_application_1/pages/home/list_page/list_page.dart';
+import 'package:flutter_application_1/pages/home/swipe_left_delete_page.dart';
+import 'package:flutter_application_1/pages/home/table_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
 
   final titleList = ['电影', '电视', '综艺', '读书', '音乐', '同城'];
-  final tabbars = [ListPage(),Page2(),Page1(),Page1(),Page1(),Page1()];
+  final tabbars = [TablePage(),ListPage(),HistoryRecordPage(),SuggestFeedbackPage(),SwipeLeftDeletePage(),Page1()];
   late TabController tabController;
 
   @override
