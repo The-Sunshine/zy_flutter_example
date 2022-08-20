@@ -26,6 +26,8 @@ dependencies:
 
   #-----------------------------------------------------#
 
+  # iOS风格的图标
+  cupertino_icons: ^1.0.2
   # 网络库
   dio: 4.0.4
   # 网络图片
@@ -34,18 +36,22 @@ dependencies:
   pull_to_refresh: ^2.0.0
   # loading
   flutter_easyloading: ^3.0.3
+  # toast https://pub.flutter-io.cn/packages/fluttertoast
+  fluttertoast: ^8.0.8
   # 跳转浏览器网页
   url_launcher: ^6.0.12
   # 本地缓存
   shared_preferences: ^2.0.9
   # 状态管理
-  get: ^3.26.0
+  get: ^4.3.7
   # 序列化
   json_annotation: ^3.0.1
-  # 弹窗
-  awesome_dialog: ^2.2.1
+  # 动画弹窗
+  animations: ^2.0.1
   # 轮播图
   flutter_swiper_plus: ^2.0.4
+  # 跑马灯
+  marquee: ^2.2.0
   # WebView
   webview_flutter: ^3.0.4
   # 按钮
@@ -60,7 +66,7 @@ dependencies:
   linkify: ^4.1.0
   # 表单验证 Email等
   validation_textformfield: ^2.2.5
-  # 缓存清除
+  # 文件路径管理工具类 缓存清除
   path_provider: ^2.0.2
   # 单选框，复选框
   group_button: ^5.0.1
@@ -72,9 +78,25 @@ dependencies:
   badges: ^2.0.2
   # 标签
   flutter_tags_x: ^1.0.0
+  # lottie动画
+  lottie: ^1.1.0
+  # 读取相册
+  image_picker: 0.8.3+3
+  # 图片保存到本地
+  image_gallery_saver: ^1.7.1
+  # 权限申请框架
+  permission_handler: ^8.1.6
+  # 加载SVG图片
+  flutter_svg: ^0.22.0
+  # 网络检测
+  connectivity: ^3.0.6
 
-  # iOS风格的图标
-  cupertino_icons: ^1.0.2
+  # rxdart
+#  rxdart: ^0.27.4
+  # 加载html标签
+#  flutter_html: ^2.1.2
+
+
 
   #-----------------------------------------------------#
 

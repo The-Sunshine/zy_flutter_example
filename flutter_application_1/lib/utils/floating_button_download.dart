@@ -23,17 +23,22 @@ class _floatingButtonState extends State<floatingButton> {
   initContainer() {
     return Container(
       height: 45.5,
-      width: 200,
+      width: 230,
       // color: Colors.green,
       child: Stack(
         children: <Widget>[
-          GestureDetector(
-            onTap: (){
-              print('下载');
-              widget.clickCallBack();
-            },
-            child: Image.asset(
-              "images/download.png",
+          Align(
+            alignment: Alignment.center,
+            child: GestureDetector(
+              onTap: (){
+                widget.clickCallBack();
+              },
+              child: Image.asset(
+                "images/home.png",
+                fit: BoxFit.fitWidth,
+                height: 45.5,
+                width: 230,
+              ),
             ),
           ),
           Align(
@@ -45,7 +50,6 @@ class _floatingButtonState extends State<floatingButton> {
                 margin: EdgeInsets.only(top: 0,right: 0),
                 child: GestureDetector(
                   onTap: (){
-                    print('关闭');
                     setState(() {
                       show = false;
                     });

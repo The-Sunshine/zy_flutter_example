@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/macro/app_info.dart';
 import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_application_1/macro/screen_size.dart';
 import 'package:flutter_application_1/macro/screen_utils.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class MinePage extends StatefulWidget {
   const MinePage({Key? key}) : super(key: key);
 
@@ -19,9 +19,19 @@ class MinePage extends StatefulWidget {
   State<MinePage> createState() => _MinePageState();
 }
 
-class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin {
-  var list = ['豆芽豆品','豆芽时间','豆芽豆品2','豆芽豆品3','豆芽豆品4',
-    '豆芽豆品5','豆芽豆品6','豆芽豆品7','豆芽豆品8'];
+class _MinePageState extends State<MinePage>
+    with SingleTickerProviderStateMixin {
+  var list = [
+    '豆芽豆品',
+    '豆芽时间',
+    '豆芽豆品2',
+    '豆芽豆品3',
+    '豆芽豆品4',
+    '豆芽豆品5',
+    '豆芽豆品6',
+    '豆芽豆品7',
+    '豆芽豆品8'
+  ];
   int selectedIndex = 0;
   bool selectedNetData = false;
   var _url = 'https://www.baidu.com';
@@ -47,18 +57,22 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
             children: <Widget>[
               _initTopHint(),
               Container(
-                padding: EdgeInsets.only(top: _isClose ? 0 : 30,),
+                padding: EdgeInsets.only(
+                  top: _isClose ? 0 : 30,
+                ),
                 child: initCustomScrollView(),
-              )
+              ),
             ],
           ),
         ),
       ),
-        floatingActionButton: floatingButton(clickCallBack: (){
+      floatingActionButton: floatingButton(
+        clickCallBack: () {
           _launchUrl();
-        },),
-        floatingActionButtonLocation:CustomFloatingActionButtonLocation(
-            FloatingActionButtonLocation.centerFloat, 0, -14),
+        },
+      ),
+      floatingActionButtonLocation: CustomFloatingActionButtonLocation(
+          FloatingActionButtonLocation.centerFloat, 0, -14),
     );
   }
 
@@ -72,7 +86,7 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
           child: Row(
             children: <Widget>[
               Text(
-                '已购买'+'部影片，重复观看不消耗观影次数',
+                '已购买' + '部影片，重复观看不消耗观影次数',
                 style: TextStyle(
                   color: Color(0xff624118),
                   fontSize: 12,
@@ -81,7 +95,7 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
               Expanded(child: Container()),
               GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: (){
+                  onTap: () {
                     setState(() {
                       _isClose = true;
                     });
@@ -90,12 +104,10 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                     prefix_image("ic_launcher"),
                     width: 16,
                     height: 16,
-                  )
-              ),
+                  )),
             ],
           ),
-        )
-    );
+        ));
   }
 
   void _launchUrl() async {
@@ -135,19 +147,17 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
   _initSegment() {
     return SliverToBoxAdapter(
       child: ZYSegmentedControl(
-        titleList: const ["111","222"],
+        titleList: const ["111", "222"],
         selectedColor: Colors.red,
         textColor: Colors.red,
         selecetedTextColor: Colors.white,
-
-        onTap: (index){
+        onTap: (index) {
           print(index);
           print(screenWidth());
           print(screenHeight());
 
           print(ScreenUtils().statusBarHeight);
           print(ScreenUtils().bottomBarHeight);
-
         },
       ),
     );
@@ -159,13 +169,13 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
       expandedHeight: 200,
       flexibleSpace: Center(
         child: Container(
-          child: CachedNetworkImage(
-            imageUrl: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-            width: 300,
-            height: 200,
-            fit: BoxFit.fill,
-            )
-        ),
+            child: CachedNetworkImage(
+          imageUrl:
+              'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+          width: 300,
+          height: 200,
+          fit: BoxFit.fill,
+        )),
       ),
     );
   }
@@ -174,7 +184,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
     return SliverToBoxAdapter(
       child: Column(
         children: <Widget>[
-          SizedBox(height: ZYScreenSize.statusBarHeight + 20,),
+          SizedBox(
+            height: ZYScreenSize.statusBarHeight + 20,
+          ),
           // SizedBox(height: ScreenUtils.getStatusBarH() + 20,),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,7 +194,7 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
               ClipRRect(
                 borderRadius: BorderRadius.circular(24),
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     print('点击了头像');
                   },
                   child: CachedNetworkImage(
@@ -194,7 +206,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                   ),
                 ),
               ),
-              SizedBox(width: 5,),
+              SizedBox(
+                width: 5,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -209,7 +223,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text(
                         'VIP',
                         style: TextStyle(
@@ -218,14 +234,16 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                       ),
                     ],
                   ),
-                  SizedBox(width: 5,),
+                  SizedBox(
+                    width: 5,
+                  ),
                   const Text(
                     'VIP',
-                    style: TextStyle(
-                        color: Colors.black
-                    ),
+                    style: TextStyle(color: Colors.black),
                   ),
-                  SizedBox(width: 5,),
+                  SizedBox(
+                    width: 5,
+                  ),
                   Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -235,9 +253,11 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                             color: Colors.grey,
                           ),
                         ),
-                        SizedBox(width: 5,),
+                        SizedBox(
+                          width: 5,
+                        ),
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             print('点击了复制');
                             EasyLoading.showSuccess('复制成功');
                           },
@@ -249,8 +269,7 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                             ),
                           ),
                         )
-                      ]
-                  ),
+                      ]),
                 ],
               ),
             ],
@@ -260,13 +279,14 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
     );
   }
 
-  _initRemindViews(){
+  _initRemindViews() {
     return SliverToBoxAdapter(
-      child:Container(
-        padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
-        child: Row(
-          children: <Widget>[
-            Expanded(child: Container(
+        child: Container(
+      padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -277,7 +297,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 2,),
+                  SizedBox(
+                    height: 2,
+                  ),
                   Text(
                     '今日剩余次数',
                     style: TextStyle(
@@ -288,9 +310,10 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                 ],
               ),
             ),
-              flex: 1,
-            ),
-            Expanded(child: Container(
+            flex: 1,
+          ),
+          Expanded(
+            child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -301,7 +324,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 2,),
+                  SizedBox(
+                    height: 2,
+                  ),
                   Text(
                     '今日剩余下载',
                     style: TextStyle(
@@ -312,9 +337,10 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                 ],
               ),
             ),
-              flex: 1,
-            ),
-            Expanded(child: Container(
+            flex: 1,
+          ),
+          Expanded(
+            child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -325,7 +351,9 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 2,),
+                  SizedBox(
+                    height: 2,
+                  ),
                   Text(
                     '金币余额',
                     style: TextStyle(
@@ -336,45 +364,47 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
                 ],
               ),
             ),
-              flex: 1,
-            ),
-          ],
-        ),
-      )
-    );
+            flex: 1,
+          ),
+        ],
+      ),
+    ));
   }
 
   _initSegmentControl() {
     return SliverToBoxAdapter(
       child: Row(
         children: <Widget>[
-          Expanded(child: Container(),
+          Expanded(
+            child: Container(),
             flex: 1,
           ),
-          Expanded(child: Container(
-            padding: const EdgeInsets.only(top: 20),
-            child: TabBar(indicator:TabIndicatorline(
-              borderSide: BorderSide(width: 2,color: Colors.green),
-              IndicatorWidth: 18,
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(top: 20),
+              child: TabBar(
+                  indicator: TabIndicatorline(
+                    borderSide: BorderSide(width: 2, color: Colors.green),
+                    IndicatorWidth: 18,
+                  ),
+                  tabs: list.map((e) => Text(e)).toList(),
+                  isScrollable: true,
+                  controller: tabController,
+                  indicatorColor: Colors.green,
+                  labelColor: Colors.green,
+                  labelStyle: TextStyle(fontSize: 18),
+                  unselectedLabelColor: Colors.grey,
+                  unselectedLabelStyle: TextStyle(fontSize: 18),
+                  indicatorSize: TabBarIndicatorSize.label,
+                  onTap: (index) {
+                    this.selectedIndex = index;
+                    print('tap is $index');
+                  }),
             ),
-                tabs: list.map((e) => Text(e)).toList(),
-                isScrollable: true,
-                controller: tabController,
-                indicatorColor: Colors.green,
-                labelColor: Colors.green,
-                labelStyle: TextStyle(fontSize: 18),
-                unselectedLabelColor: Colors.grey,
-                unselectedLabelStyle: TextStyle(fontSize: 18),
-                indicatorSize: TabBarIndicatorSize.label,
-                onTap: (index) {
-                  this.selectedIndex = index;
-                  print('tap is $index');
-                }
-            ),
-          ),
             flex: 3,
           ),
-          Expanded(child: Container(),
+          Expanded(
+            child: Container(),
             flex: 1,
           ),
         ],
@@ -397,36 +427,41 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
 
   _initMyVideo() {
     return SliverToBoxAdapter(
-      child:Padding(
-        padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
-        child: Container(
-          padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.grey
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('我的书影音', style: TextStyle(
-                fontWeight: FontWeight.bold,fontSize: 18,
-              )),
-              SizedBox(height: 15,),
-              AspectRatio(aspectRatio: 343/90,
-                  child:ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: CachedNetworkImage(
-                      imageUrl: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-                      width: 300,height: 200,fit: BoxFit.fill,
-                    ),
-                  )
-              )
-            ],
-          ),
+        child: Padding(
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
+      child: Container(
+        padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5), color: Colors.grey),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('我的书影音',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                )),
+            SizedBox(
+              height: 15,
+            ),
+            AspectRatio(
+                aspectRatio: 343 / 90,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+                    width: 300,
+                    height: 200,
+                    fit: BoxFit.fill,
+                  ),
+                ))
+          ],
         ),
-      )
-    );
+      ),
+    ));
   }
+
   _divider() {
     return SliverToBoxAdapter(
       child: Container(
@@ -436,27 +471,29 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
     );
   }
 
-  _initCollectList(String imageName,String title) {
-  // VoidCallback onTap) {
+  _initCollectList(String imageName, String title) {
+    // VoidCallback onTap) {
     return SliverToBoxAdapter(
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
         // onTap: onTap,
         child: Row(
           children: <Widget>[
-            Padding(padding: EdgeInsets.all(10),
+            Padding(
+              padding: EdgeInsets.all(10),
               child: Image.asset(
                 prefix_image('ic_launcher.png'),
                 width: 25,
                 height: 25,
               ),
             ),
-            Expanded(child: Text(
+            Expanded(
+                child: Text(
               title,
               style: TextStyle(fontSize: 15),
             )),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 print('object');
               },
               child: Icon(
@@ -473,45 +510,51 @@ class _MinePageState extends State<MinePage> with SingleTickerProviderStateMixin
   _initDataFromNetwork() {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.only(left: 10,right: 10),
+        padding: const EdgeInsets.only(left: 10, right: 10),
         child: Row(
           children: <Widget>[
             Text(
               '书影音数据是否来自网络',
-              style: TextStyle(color: Colors.red,
-                fontSize: 17
-              ),
+              style: TextStyle(color: Colors.red, fontSize: 17),
             ),
             Expanded(child: Container()),
-            CupertinoSwitch(value: selectedNetData, onChanged: (bool value) {
-              setState(() {
-                this.selectedNetData = value;
-              });
-              _setData(value);
+            CupertinoSwitch(
+                value: selectedNetData,
+                onChanged: (bool value) {
+                  setState(() {
+                    this.selectedNetData = value;
+                  });
+                  _setData(value);
 
-              var temp;
-              if (value) {
-                temp = '书影音数据 使用网络数据，重启APP后生效';
-              }else{
-                temp = '书影音数据 使用本地数据，重启APP后生效';
-              }
+                  var temp;
+                  if (value) {
+                    temp = '书影音数据 使用网络数据，重启APP后生效';
+                  } else {
+                    temp = '书影音数据 使用本地数据，重启APP后生效';
+                  }
 
-              showDialog(context: context, builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text('提示'),
-                  content: Text(temp),
-                  actions: <Widget>[
-                    MaterialButton(onPressed: (){
-                      Navigator.of(context).pop();
-                    }, child: Text('稍后我自己重启')),
-                    MaterialButton(onPressed: (){
-                      print('重启');
-                      Navigator.of(context).pop();
-                    }, child: Text('现在重启'))
-                  ],
-                );
-              });
-            }),
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('提示'),
+                          content: Text(temp),
+                          actions: <Widget>[
+                            MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('稍后我自己重启')),
+                            MaterialButton(
+                                onPressed: () {
+                                  print('重启');
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('现在重启'))
+                          ],
+                        );
+                      });
+                }),
           ],
         ),
       ),

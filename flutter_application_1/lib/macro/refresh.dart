@@ -19,18 +19,14 @@ initRefreshScrollView(
   );
 }
 
-endRefreshWithDatas(RefreshController _refreshController, bool noMore) {
+endRefresh(RefreshController _refreshController,
+    {bool noMore = false}) {
   _refreshController.refreshCompleted();
   if (noMore) {
     _refreshController.loadNoData();
   } else {
     _refreshController.loadComplete();
   }
-}
-
-endRefresh(RefreshController _refreshController) {
-  _refreshController.refreshCompleted();
-  _refreshController.loadComplete();
 }
 
 class ZYCustomRefreshFooter extends StatelessWidget {

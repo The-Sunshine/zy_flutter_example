@@ -1,12 +1,9 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_application_1/macro/refresh.dart';
 import 'package:flutter_application_1/macro/screen_size.dart';
-import 'package:flutter_application_1/macro/screen_utils.dart';
-import 'package:flutter_application_1/pages/home/list_page/car.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter_application_1/pages/home/list/list_page/car.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HistoryRecordPage extends StatefulWidget {
@@ -68,7 +65,7 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
   }
 
   void requestData() {
-    endRefreshWithDatas(_refreshController, datas.isEmpty);
+    endRefresh(_refreshController,noMore: datas.isEmpty);
     // HomeNetManager.buyMovie(
     //     {'page':this.page,
     //       'page_size':10,
@@ -196,25 +193,7 @@ class _HistoryRecordPageState extends State<HistoryRecordPage> {
   }
 
   _initDeletePopView(int index){
-    AwesomeDialog(
-      context: context,
-      animType: AnimType.SCALE,
-      dialogType: DialogType.NO_HEADER,
-      body: Container(
-        height: 64,
-        color: Colors.white,
-        padding: EdgeInsets.only(top: 15),
-        child: GestureDetector(
-          onTap: (){
 
-          },
-          child: Text(
-            '取消收藏',
-            style: TextStyle(fontSize: 14),
-          ),
-        )
-      )
-    ).show();
   }
 
   // Center(

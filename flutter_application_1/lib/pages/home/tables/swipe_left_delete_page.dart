@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class SwipeLeftDeletePage extends StatefulWidget {
@@ -56,6 +57,7 @@ class _SwipeLeftDeletePageState extends State<SwipeLeftDeletePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: initAppBar('左滑删除'),
       backgroundColor: Colors.grey[100],
       body: ListView.builder(
         itemBuilder: _itemForRow,

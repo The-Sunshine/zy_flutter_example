@@ -28,3 +28,7 @@ AppBar initAppBar(String title,{List<Widget>? actions}){
   );
 }
 
+
+zy_navigator_push() {
+
+}

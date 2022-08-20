@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/macro/app_info.dart';
 import 'package:flutter_application_1/macro/global.dart';
 import 'package:flutter_application_1/macro/screen_size.dart';
 import 'package:flutter_application_1/pages/home/home_page.dart';
-import 'package:flutter_application_1/pages/home/list_page/list_page.dart';
+import 'package:flutter_application_1/pages/home/list/luShot/luShot_explain_page.dart';
+import 'package:flutter_application_1/pages/home/list/luShot/my_luShot_page.dart';
+import 'package:flutter_application_1/pages/home/tables/popView_page.dart';
+import 'package:flutter_application_1/pages/home/list/popView_surecancel_page.dart';
 import 'package:flutter_application_1/pages/mine/mine_page.dart';
+import 'package:flutter_application_1/utils/draggable_fab.dart';
 
 
 class ContainerPage extends StatefulWidget {
@@ -22,7 +27,7 @@ class _ContainerPageState extends State<ContainerPage> {
 
   List<Widget> pages = [
     HomePage(),
-    ListPage(),
+    MyLuShotPage(),
     MinePage(),
   ];
 
@@ -67,6 +72,16 @@ class _ContainerPageState extends State<ContainerPage> {
           _getPagesWidget(0),
           _getPagesWidget(1),
           _getPagesWidget(2),
+          Offstage(
+            offstage: !APPInfo.isShowDraggable,
+            child: DraggableFab(
+              initPosition: Offset(screenWidth() - 100 ,screenHeight() - 200),
+              child: FloatingActionButton(
+                onPressed: _incrementCounter,
+                child: Icon(Icons.add),
+              ),
+            ),
+          )
         ],
       ),
 
@@ -86,6 +101,10 @@ class _ContainerPageState extends State<ContainerPage> {
         type: BottomNavigationBarType.fixed,
       ),
     );
+  }
+
+  void _incrementCounter() {
+    setState(() {});
   }
 
   Widget _getPagesWidget(int index) {

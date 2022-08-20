@@ -23,5 +23,6 @@ class APPInfo {
 
   }
 
+  static bool isShowDraggable = true;
 
 }
